@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://mim:12345@cluster0.tfzr2.mongodb.net/amazona-app?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazon-app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
